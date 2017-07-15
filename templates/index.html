@@ -25,17 +25,22 @@
 
         <div class="edu_programs_list">
             
+            <table class="table">
             {% for program in edu_programs_list %}
-                <div class="edu_program">
-                    <a href={{program.link}}> <h4>{{program.name}}</h4> </a>
-                    <p>{{program.description}}</p>
-
-                </div>
-                <br>
+                <tr>
+                    <td>
+                        <a href={{program.link}}> <h4>{{program.name}}</h4> </a>
+                        <p>{{program.description}}</p>
+                    </td>
+                    <td>
+                        <p>{{program.city}}</p>
+                    </td>
+                </tr>
+                
             {% endfor %}
+            </table>
         </div>
 
-        
     </body>
 </html>
 
