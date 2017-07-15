@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Educat - Каталог образовательных программ</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    </head>
+  
+    <nav class="navbar navbar-inverse">
+    <div class="container">sjrbisbr</div>
+
+    </nav>
+
+    <body>
+
+    <nav id="ac-globalnav" class="no-js" role="navigation" aria-label="Global Navigation" data-hires="false" data-analytics-region="global nav" lang="en-US" dir="ltr" data-store-locale="us" data-store-api="/[storefront]/shop/bag/status" data-search-locale="en_US" data-search-api="/search-services/suggestions/">
+    </nav>
+        
+        <h1>Образовательные программы</h1>    
+        <br>
+
+        <div class="edu_programs_list">
+            
+            {% for program in edu_programs_list %}
+                <div class="edu_program">
+                    <a href={{program.link}}> <h4>{{program.name}}</h4> </a>
+                    <p>{{program.description}}</p>
+
+                </div>
+                <br>
+            {% endfor %}
+        </div>
+
+        
+    </body>
+</html>
+
