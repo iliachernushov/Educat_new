@@ -64,9 +64,5 @@ if __name__ == "__main__":
     init_db()
     remove_paragraph_symbols()
     write_in_db()
-    try:
-        while True:
-            city = input("Enter city name: ")
-    except EOFError:
-        pass
+    city = input("Enter city name: ")
     get_data(city)
