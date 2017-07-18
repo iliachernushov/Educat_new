@@ -50,7 +50,7 @@ def remove_paragraph_symbols(): #remove \n from "описание проекта
 
 def write_in_db():
     for project in remove_paragraph_symbols():
-        project = Projects(project['ProjectName'], project['Описание проекта'], project['Город'],project['Сайт'] )
+        project = Projects(project['ProjectName'],project['Описание проекта'],project['Город'],project['Сайт'] )
         db_session.add(project)
 
     db_session.commit()
@@ -60,14 +60,13 @@ def get_data(city):
     print(project_name)
 
 
-def main():
+if __name__ == "__main__":
     init_db()
     remove_paragraph_symbols()
     write_in_db()
-    city = input("Enter city name: ")
-    get_data()
-
-if __name__ == "__main__":
-    main()
-    
-
+    try:
+        while True:
+            city = input("Enter city name: ")
+    except EOFError:
+        pass
+    get_data(city)
