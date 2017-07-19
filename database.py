@@ -25,7 +25,7 @@ class Projects(Base):
         self.project_url = project_url
 
     def __repr__(self):
-        return '<Event {} {} {} {}>'.format(self.project_name, self.project_description, self.project_city, self.project_url)
+        return '<Projects {} {} {} {}>'.format(self.project_name, self.project_description, self.project_city, self.project_url)
 
 def init_db():
     Base.metadata.create_all(bind=engine)
@@ -41,7 +41,7 @@ def create_projects_list_from_csv():
         return projects_list
 
 
-def remove_paragraph_symbols(): #remove \n from "описание проекта"
+def remove_paragraph_symbols(): 
     repaired_projects_list = []
     for project in create_projects_list_from_csv():
         project["Описание проекта"] = project.get("Описание проекта").replace("\n","")
@@ -56,8 +56,17 @@ def write_in_db():
     db_session.commit()
 
 def get_data(city):
-    project_name = Projects.query.filter(Projects.project_city == city).all()
-    print(project_name)
+    projects_list_from_db = []
+    individual_project_dict = {}
+    full_project_info = Projects.query.filter(Projects.project_city == city).all() #show info about all projects in required city - this is list of object of Projects class
+    for project in full_project_info:
+        individual_project_dict["name"] = project.project_name
+        individual_project_dict["description"] = project.project_description
+        individual_project_dict["city"] = project.project_city
+        individual_project_dict["link"] = project.project_url
+        projects_list_from_db.append(individual_project_dict)
+    #print(projects_list_from_db)
+    return projects_list_from_db
 
 
 if __name__ == "__main__":
@@ -65,4 +74,4 @@ if __name__ == "__main__":
     remove_paragraph_symbols()
     write_in_db()
     city = input("Enter city name: ")
-    get_data(city)
+    get_data()
