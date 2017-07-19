@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template
 
 try:
-	from db import get_programs_list
+	from database import get_data
 except:
 	pass
 
@@ -12,7 +12,7 @@ app = Flask(__name__)
 def index():
 
     try:
-    	edu_programs_list = get_programs_list(30)
+    	edu_programs_list = get_data('Москва')
     except:
     	edu_programs_list = [{'name':'Первая обучающая программа', 'description':'Описание программы 1. Много букв...', 'city':'Москва', 'link':'https://www.rambler.ru/'}, {'name':'Вторая обучающая программа', 'description':'Описание программы 2. Много букв...', 'city':'Тамбов', 'link':'https://www.yandex.ru/'}]
     

@@ -74,4 +74,4 @@ if __name__ == "__main__":
     remove_paragraph_symbols()
     write_in_db()
     city = input("Enter city name: ")
-    get_data()
+    print(get_data(city))
