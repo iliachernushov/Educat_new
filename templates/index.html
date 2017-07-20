@@ -21,7 +21,7 @@
 
                 <div class="edu_programs_list">  
                     {% for program in edu_programs_list %} 
-                        <a class="edu_program_name" href={{program.link}}> {{program.name}} </a><br>
+                        <a class="edu_program_name" href={{program.link}} target="_blank"> {{program.name}} </a><br>
                         <p>{{program.description}}</p>
                         <hr>
                     {% endfor %}
