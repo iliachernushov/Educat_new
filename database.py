@@ -63,11 +63,11 @@ def get_data(city):
         individual_project_dict["city"] = project.project_city
         individual_project_dict["link"] = project.project_url
         projects_list_from_db.append(individual_project_dict)
-    print(projects_list_from_db)
+    return projects_list_from_db
 
 if __name__ == "__main__":
     init_db()
     remove_paragraph_symbols()
     write_in_db()
     city = input("Enter city name: ")
-    print(get_data(city))
+    get_data()
