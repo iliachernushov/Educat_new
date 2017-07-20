@@ -61,7 +61,11 @@ def get_data(city):
         individual_project_dict["name"] = project.project_name
         individual_project_dict["description"] = project.project_description
         individual_project_dict["city"] = project.project_city
-        individual_project_dict["link"] = project.project_url
+        #Если в ссылке из базы нет подписи http, то приклеиваю его принулительно (т.к. иначе ссылка не работает)
+        if (project.project_url.find("http") == (-1)):
+            individual_project_dict["link"] = "http://" + project.project_url
+        else:
+            individual_project_dict["link"] = project.project_url
         projects_list_from_db.append(individual_project_dict)
     return projects_list_from_db
 
@@ -70,4 +74,5 @@ if __name__ == "__main__":
     remove_paragraph_symbols()
     write_in_db()
     city = input("Enter city name: ")
-    get_data()
+    print(get_data(city))
+

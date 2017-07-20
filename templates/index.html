@@ -1,6 +1,37 @@
 <!DOCTYPE html>
 <html>
 
+    <body>
+
+        <head>
+            <meta charset="utf-8">
+            <title>Educata. Каталог образовательных программ</title>
+            <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}" -->
+            <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/beauty.css') }}">
+        </head>
+        
+        <div class="header">
+            <div class="header-container">
+                <img class="logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="Educata. Каталог образовательных проектов России">
+            </div>
+        </div>    
+
+        <div class="main_content">
+            <div class="main_content_container">
+
+                <div class="edu_programs_list">  
+                    {% for program in edu_programs_list %} 
+                        <a class="edu_program_name" href={{program.link}}> {{program.name}} </a><br>
+                        <p>{{program.description}}</p>
+                        <hr>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+<!--
     <head>
         <meta charset="utf-8">
         <title>Educat - Каталог образовательных программ</title>
@@ -31,5 +62,7 @@
         </div>
 
     </body>
+-->
+
 </html>
 
