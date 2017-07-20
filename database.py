@@ -57,16 +57,15 @@ def write_in_db():
 
 def get_data(city):
     projects_list_from_db = []
-    individual_project_dict = {}
     full_project_info = Projects.query.filter(Projects.project_city == city).all() #show info about all projects in required city - this is list of object of Projects class
     for project in full_project_info:
+        individual_project_dict = {}
         individual_project_dict["name"] = project.project_name
         individual_project_dict["description"] = project.project_description
         individual_project_dict["city"] = project.project_city
         individual_project_dict["link"] = project.project_url
         projects_list_from_db.append(individual_project_dict)
-    #print(projects_list_from_db)
-    return projects_list_from_db
+    print(projects_list_from_db)
 
 
 if __name__ == "__main__":
