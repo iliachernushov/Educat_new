@@ -1,4 +1,6 @@
 env/
 projects_db.sqlite
+projects.csv
 css_debug/
+__pycache__/
 
