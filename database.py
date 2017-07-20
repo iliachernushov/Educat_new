@@ -9,7 +9,6 @@ db_session = scoped_session(sessionmaker(bind=engine))
 Base = declarative_base() 
 Base.query = db_session.query_property() 
 
-
 class Projects(Base):  
     __tablename__ = 'projects'
     id = Column(Integer, primary_key=True)
@@ -27,9 +26,9 @@ class Projects(Base):
     def __repr__(self):
         return '<Projects {} {} {} {}>'.format(self.project_name, self.project_description, self.project_city, self.project_url)
 
+
 def init_db():
     Base.metadata.create_all(bind=engine)
-
 
 def create_projects_list_from_csv():
     projects_list = []
@@ -39,7 +38,6 @@ def create_projects_list_from_csv():
         for row in reader:
             projects_list.append(row)
         return projects_list
-
 
 def remove_paragraph_symbols(): 
     repaired_projects_list = []
@@ -57,7 +55,7 @@ def write_in_db():
 
 def get_data(city):
     projects_list_from_db = []
-    full_project_info = Projects.query.filter(Projects.project_city == city).all() #show info about all projects in required city - this is list of object of Projects class
+    full_project_info = Projects.query.filter(Projects.project_city == city).all()
     for project in full_project_info:
         individual_project_dict = {}
         individual_project_dict["name"] = project.project_name
@@ -66,7 +64,6 @@ def get_data(city):
         individual_project_dict["link"] = project.project_url
         projects_list_from_db.append(individual_project_dict)
     print(projects_list_from_db)
-
 
 if __name__ == "__main__":
     init_db()
