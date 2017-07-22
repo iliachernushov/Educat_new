@@ -63,7 +63,7 @@ def get_data(city):
         individual_project_dict["city"] = project.project_city
         #Если в ссылке из базы нет подписи http, то приклеиваю его принулительно (т.к. иначе ссылка не работает)
         if (project.project_url.find("http") == (-1)):
-            individual_project_dict["link"] = "http://" + project.project_url
+            individual_project_dict["link"] = "http://{}".format(project.project_url) 
         else:
             individual_project_dict["link"] = project.project_url
         projects_list_from_db.append(individual_project_dict)
