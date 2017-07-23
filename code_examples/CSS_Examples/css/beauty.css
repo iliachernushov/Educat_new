@@ -1,0 +1,81 @@
+body {
+	width: 100%;
+	background-color: #F2F2F2;
+}
+
+.header {
+	background-color: #FFFFFF;
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.header-container {
+	
+	width: 1024px;
+	background-color: #FFFFFF;
+
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px 0px 7px 15px;
+	
+}
+
+
+
+.main_content_container {
+	width: 1024px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.edu_programs_list {
+	width: 660px;
+	
+	position: relative;
+	display: inline-block;
+
+	background-color: #FFFFFF;
+	margin-top: 25px;
+	margin-left: 12px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	padding: 25px;
+}
+
+hr {
+	margin-top: 25px;
+	margin-bottom: 25px;
+	border: none; /* Убираем границу для браузера Firefox */
+    color: #E4E4E4; /* Цвет линии для остальных браузеров */
+    background-color: #E4E4E4; /* Цвет линии для браузера Firefox и Opera */
+    height: 1px;
+}
+
+a {
+	color: #3399FF;
+}
+
+p {
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+
+.filters_container {
+	position: relative;
+	display: inline-block;
+	width: 140px;
+	padding-left: 22px;
+
+}
+
+.filters {
+	border-color: #FF0000;
+	position: relative;
+	display: inline-block;
+	width: 318px;
+	height: 300px;
+
+	background-color: #FFFFFF;
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+ 
+	padding: 24px;
+}
