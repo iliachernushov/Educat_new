@@ -53,9 +53,9 @@ def write_in_db():
 
     db_session.commit()
 
-def get_data(city):
+def get_projects_by_city_filter():
     projects_list_from_db = []
-    full_project_info = Projects.query.filter(Projects.project_city == city).all()
+    full_project_info = Projects.query.filter(Projects.project_city == "Москва").all()
     for project in full_project_info:
         individual_project_dict = {}
         individual_project_dict["name"] = project.project_name
@@ -69,10 +69,24 @@ def get_data(city):
         projects_list_from_db.append(individual_project_dict)
     return projects_list_from_db
 
+def split_projects_list_in_sublists(quantity_on_page): #takes projects_list_from_db and divide it into sublists. Each sublist will be shown on separate webpage
+    list_to_split = get_projects_by_city_filter()
+    print([list_to_split[i:i+quantity_on_page] for i in range(0, len(list_to_split), quantity_on_page)])
+
+   
+
 if __name__ == "__main__":
     init_db()
     remove_paragraph_symbols()
     write_in_db()
-    city = input("Enter city name: ")
-    print(get_data(city))
+    #city = input("Enter city name and how many projects to show: ",)
+    #print(get_data())
+    while True:
+        try:
+            quantity_on_page, page_number = int(input("Type how many projects you want us to show on page and which page to show: "))
+            split_projects_list_in_sublists(quantity_on_page)
+            break 
+        except ValueError:
+            print("Please enter integer value. \n")    
+    
 
