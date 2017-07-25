@@ -28,42 +28,30 @@
                     {% endfor %}
                 </div>
 
+                <div class="filters">
+                        <select name="city" class="city">
+                            <option>Москва</option>
+                        </select>
+
+                        <select name="quantity_on_page" class="quantity_on_page">
+                            <option>5</option>
+                            <option>10</option>
+                            <option>20</option>
+                        </select>
+
+                        <ul class="paginator">
+                            {% for page in range(1, quantity_on_page) %}
+                                 <li> <a href="">{{page}}</a></li>
+                            {% endfor %}
+
+                        </ul>
+
+                    </div>
+
             </div>
         </div>
 
     </body>
-<!--
-    <head>
-        <meta charset="utf-8">
-        <title>Educat - Каталог образовательных программ</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/beauty.css') }}" />
-    </head>
-
-    <body>
-        
-        <h1>Образовательные программы</h1>
-        <br>
-
-        <div class="edu_programs_list">
-            
-            <table class="table">
-            {% for program in edu_programs_list %}
-                <tr>
-                    <td>
-                        <a class="link" href={{program.link}}> {{program.name}} </a>
-                        <p>{{program.description}}</p>
-                    </td>
-                    <td>
-                        <p>{{program.city}}</p>
-                    </td>
-                </tr>
-                
-            {% endfor %}
-            </table>
-        </div>
-
-    </body>
--->
 
 </html>
 

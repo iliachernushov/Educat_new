@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<form method="POST" action="/programs/">
+    <input type="text" name="text_field">
+
+    <select name="city" autofocus>
+        <option></option>
+        <option>Москва</option>
+        <option selected>Тамбов</option>
+    </select>
+
+    <button type="submit">Показать</button>
+
+    <br>
+    <br>
+
+    <a href="/sucess">Переход на удачную страницу</a>
+    <br>
+    <a href="/programs?city={{city}}&page={{page}}" method='GET'>Ссылка передает курск по get запросу kursk и 5</a>
+    <br>
+    <a href="/programs?word=test" method='GET'>Ссылка передает test</a>
+
+</form>
+
+
+<!-- ?city=Kursk&page=123
+                    {% for program in edu_programs_list %} 
+                        <a class="edu_program_name" href={{program.link}} target="_blank"> {{program.name}} </a><br>
+                        <p>{{program.description}}</p>
+                        <hr>
+                    {% endfor %}
+-->           
+
+</html>
+
