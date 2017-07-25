@@ -72,21 +72,27 @@ def get_projects_by_city_filter():
 def split_projects_list_in_sublists(quantity_on_page): #takes projects_list_from_db and divide it into sublists. Each sublist will be shown on separate webpage
     list_to_split = get_projects_by_city_filter()
     print([list_to_split[i:i+quantity_on_page] for i in range(0, len(list_to_split), quantity_on_page)])
+    #return [list_to_split[i:i+quantity_on_page] for i in range(0, len(list_to_split), quantity_on_page)]
 
+def get_filtered_data(page_number):
+    print(split_projects_list_in_sublists()[page_number])
    
 
 if __name__ == "__main__":
     init_db()
     remove_paragraph_symbols()
     write_in_db()
-    #city = input("Enter city name and how many projects to show: ",)
-    #print(get_data())
+    #city = input("Enter city name: ")
     while True:
         try:
-            quantity_on_page, page_number = int(input("Type how many projects you want us to show on page and which page to show: "))
-            split_projects_list_in_sublists(quantity_on_page)
-            break 
+            quantity_on_page = int(input("\n\nType how much projects you want us to show on page: "))
+            if quantity_on_page < 1:
+                pass
+                #print("Try again") 
+            else:
+                split_projects_list_in_sublists(quantity_on_page)
+                break 
         except ValueError:
-            print("Please enter integer value. \n")    
+            print("\nPlease enter integer value greater than 0.")    
     
 
